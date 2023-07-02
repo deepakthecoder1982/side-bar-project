@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Left Panel Navigation</title>
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+      font-family: cursive;
+    }
+    /* CSS for left panel */
+    .left-panel {
+      float: left;
+      width: 20%;
+      background-color: white;
+      height: 100vh;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+
+    /* Styling for left panel links */
+    .left-panel a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #333;
+      transition: background-color 0.3s ease;
+      list-style: none;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .left-panel ul a:hover{
+        background-color: rgb(231, 227, 227);
+        transform: scale(1.02);
+        color: black;
+    }
+    .left-panel .logo{
+        position: relative;
+        padding-bottom: 12px;
+        text-align: center;
+        color: rgba(193, 47, 198, 0.959);
+        font-family: cursive;
+        font-size: 30px;
+    }
+
+    /* Styling for active link */
+    .left-panel ul a.active {
+      background:linear-gradient(to right,dodgerblue,indigo);
+      color: white;
+      box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    }
+
+    .left-panel ul li{
+        list-style: none;
+    }
+    /* CSS for content area */
+    .content {
+      margin-left: 20%;
+      padding: 20px;
+      height: 100vh;
+      background-color: whitesmoke;
+      margin: auto;
+      text-align: center;
+    }
+
+    /* Styling for content headers */
+    .content h2 {
+      margin-top: 0;
+      font-size: 34px;
+    }
+
+    /* Styling for content paragraphs */
+    .content p {
+      margin-bottom: 1em;
+    }
+    .content h2{
+      color:green;
+    }
+    .content p{
+      color: #333;
+      font-size: 23px;
+      font-weight: 20px;
+      font-family: cursive;
+    }
+  </style>
+</head>
+<body>
+  <div class="left-panel">
+    <h1 href="#home" onclick="showContent('home')" class="logo">Logo</h1>
+    <ul>
+      <li><a href="#home" onclick="showContent('home')" class="active">Home</a></li>
+      <li><a href="#contact" onclick="showContent('contact')">Contact</a></li>
+      <li><a href="#information" onclick="showContent('information')">Information</a></li>
+      <li><a href="#guide" onclick="showContent('guide')">Guide</a></li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <div id="home">
+      <h2>Home</h2>
+      <p>Welcome to the home page!</p>
+    </div>
+
+    <div id="contact" style="display: none;">
+      <h2>Contact</h2>
+      <p>Welcome to the Contact page.</p>
+      <p>Email:- deepakyad18@gmail.com</p>
+      <p>Phone no:- 9137270148</p>
+    </div>
+
+    <div id="information" style="display: none;">
+      <h2>Information</h2>
+      <p>Hii I am deepak this project is build by me with help of HTML, CSS and JS.</p>
+      <p>My resume Link:- <a target="_blank" href="https://drive.google.com/file/d/1lwW2s74zmM3Q_XlyT_nKwMSBYZARu74j/view?usp=sharing">Deepak-Archana-Mahesh-Yadav</a></p>
+    </div>
+
+    <div id="guide" style="display: none;">
+      <h2>Guide</h2>
+      <p>A helpful guide will be shown here.</p>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript function to show content based on selected component
+    function showContent(component) {
+      // Hide all content divs
+      var contentDivs = document.querySelectorAll('.content div');
+      contentDivs.forEach(function(div) {
+        div.style.display = 'none';
+      });
+
+      // Remove active class from all links
+      var links = document.querySelectorAll('.left-panel a');
+      links.forEach(function(link) {
+        link.classList.remove('active');
+      });
+
+      // Show selected content div
+      var selectedDiv = document.getElementById(component);
+      selectedDiv.style.display = 'block';
+
+      // Add active class to the selected link
+      var selectedLink = document.querySelector('.left-panel a[href="#' + component + '"]');
+      selectedLink.classList.add('active');
+    }
+  </script>
+</body>
+</html>
